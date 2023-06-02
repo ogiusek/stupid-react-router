@@ -1,30 +1,116 @@
-# stupid-react-router
 
-> Made with create-react-library
+# Simple React Router
 
-[![NPM](https://img.shields.io/npm/v/stupid-react-router.svg)](https://www.npmjs.com/package/stupid-react-router) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+This is simple working react router.
+## Installation
 
-## Install
+Install stupid-react-router with npm
 
 ```bash
-npm install --save stupid-react-router
+  npm install stupid-react-router
 ```
 
-## Usage
+## Usage/Examples
 
-```jsx
-import React, { Component } from 'react'
+### Route
+```javascript
+import { Route } from 'stupid-react-router'
 
-import MyComponent from 'stupid-react-router'
-import 'stupid-react-router/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+function App() {
+  return (<Route path="/path">
+    show on /path/+
+    <Route path="/exact" exact>
+        show on /path/exact
+    </Route>
+  </Route>);
 }
 ```
+
+### Switch
+```javascript
+import { Switch, Route } from 'stupid-react-router'
+
+function App() {
+  return (<Switch>
+    <Route path="/path">show on /path/+</Route>
+    <Route>show on not /path/+</Route>
+  </Switch>);
+}
+```
+
+### Link
+```javascript
+import { Link } from 'stupid-react-router'
+
+function App() {
+  return (<Link to="/">link</Link>);
+}
+```
+
+### redirect
+```javascript
+import { redirect } from 'stupid-react-router'
+
+function App() {
+  const handle = ()=>{
+    redirect('/path');
+  }
+
+  return (<div>
+  </div>);
+}
+```
+
+### Redirect
+```javascript
+import { Switch, Route, Redirect } from 'stupid-react-router'
+
+function App() {
+  const handle = ()=>{
+    redirect('/path');
+  }
+
+  return (<Switch>
+    <Route path="/path">path</Route>
+    <Route><Redirect to="/path"/></Route>
+  </Switch>);
+}
+```
+
+### GetPath
+```javascript
+import { Route, GetPath } from 'stupid-react-router'
+
+function App() {
+
+  return (<Route path="/route">
+    <GetPath callback={(path)=>{
+        console.log(path); // ''
+    }}/>
+    <GetPath relative={false} callback={(path)=>{
+        console.log(path); // '/route'
+    }}/>
+  </Route>);
+}
+```
+## Deployment
+
+For deployment of this router you can use 
+
+Web server like apache2\
+Hosting platform
+
+Or just use serve
+```bash
+  npm run build
+```
+```bash
+  serve -s build
+```
+
+
 
 ## License
 
 ISC © [ogiusek](https://github.com/ogiusek)
+
