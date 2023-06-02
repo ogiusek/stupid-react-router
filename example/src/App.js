@@ -1,10 +1,15 @@
 import React from 'react'
 
-import { ExampleComponent } from 'stupid-react-router'
+import { Route } from 'stupid-react-router'
 import 'stupid-react-router/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <div>
+    ssd
+    <Route path="/rock">
+      block
+    </Route>
+  </div>;
 }
 
 export default App

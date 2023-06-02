@@ -1,0 +1,1 @@
+export { GetPath } from "./GetPath";
