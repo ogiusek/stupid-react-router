@@ -1,1 +1,1 @@
-export { GetPath } from "./GetPath";
+export { GetPath } from "./GetPath.tsx";

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Route } from "..";
 
-import RouteContext from "../Route/RouteContext";
+import { RouteContext } from "../Route";
 import GetChild from "./GetChild";
 
-function Switch({ children }) {
+function Switch({ children }): ReactNode {
     const ctx = React.useContext(RouteContext);
     const allowedChildTypes = [Route];
 

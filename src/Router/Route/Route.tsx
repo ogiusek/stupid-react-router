@@ -1,7 +1,13 @@
-import React from "react";
-import RouteContext from "./RouteContext.js";
+import React, { ReactNode } from "react";
+import { RouteContext } from "./index";
 
-function Route({ children, path = "/", exact = false }) {
+interface RouteProps {
+    children?: ReactNode,
+    path?: string,
+    exact?: boolean
+}
+
+function Route({ children, path = "/", exact = false }: RouteProps): ReactNode {
     const ctx = React.useContext(RouteContext);
 
     const realPath = window.location.pathname;

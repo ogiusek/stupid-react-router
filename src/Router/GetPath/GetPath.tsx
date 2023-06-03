@@ -1,7 +1,12 @@
-import React from "react";
-import RouteContext from "../Route/RouteContext.js";
+import React, { ReactNode } from "react";
+import { RouteContext } from "../Route";
 
-function GetPath({ callback, relative = true }) {
+interface GetPathProps {
+    callback?: () => any,
+    relative?: Boolean
+}
+
+function GetPath({ callback, relative = true }: GetPathProps): ReactNode {
     const ctx = React.useContext(RouteContext);
 
     const defaultPath = window.location.pathname;
