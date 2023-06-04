@@ -1,15 +1,15 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { RouteContext } from "../Route";
 import { redirect } from "../Redirect";
 
 interface LinkProps {
-    children?: ReactNode,
+    children?: JSX.Element,
     to?: string,
     exact?: boolean
 }
 
-function Link({ children, to = '/', exact = false }: LinkProps): ReactNode {
+function Link({ children, to = '/', exact = false }: LinkProps): JSX.Element {
     const ctx = React.useContext(RouteContext);
 
     const handleLink = (event) => {

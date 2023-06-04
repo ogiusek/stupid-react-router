@@ -4,4 +4,4 @@ const RouteContext = React.createContext({
     path: ''
 });
 
-export default RouteContext;
+export { RouteContext };

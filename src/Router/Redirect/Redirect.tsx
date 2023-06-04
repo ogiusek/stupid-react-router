@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { RouteContext } from "../Route";
 import { redirect } from "../index";
@@ -8,7 +8,7 @@ interface RedirectProps {
     exact?: boolean
 }
 
-function Redirect({ to = '/', exact = false }: RedirectProps): ReactNode {
+function Redirect({ to = '/', exact = false }: RedirectProps): JSX.Element {
     const ctx = React.useContext(RouteContext);
     redirect((exact ? '' : ctx.path) + to);
     return (<React.Fragment />);

@@ -1,4 +1,2 @@
-import { Redirect } from './Redirect.tsx';
-import { redirect } from './redirect.ts';
-
-export { Redirect, redirect };
+export { Redirect } from './Redirect.tsx';
+export { redirect } from './redirect.ts';

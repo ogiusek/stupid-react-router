@@ -1,4 +1,2 @@
-import { Route } from "./Route.tsx";
-import RouteContext from "./RouteContext.ts";
-
-export { Route, RouteContext };
+export { Route, routeLogic } from "./Route.tsx";
+export { RouteContext } from "./RouteContext.ts";

@@ -1,3 +1,1 @@
-import { Switch } from "./Switch.tsx";
-
-export { Switch };
+export { Switch } from "./Switch.tsx";

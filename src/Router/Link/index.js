@@ -1,3 +1,1 @@
-import { Link } from "./Link.tsx";
-
-export { Link };
+export { Link } from "./Link.tsx";
