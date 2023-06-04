@@ -22,11 +22,20 @@ function App() {
     <Route path="/exact" exact>
         show on /path/exact
     </Route>
+
+    <Route path="/:user/edit" exact
+        values={[':user']}
+        setValues={[e => {
+          console.log(e); // anything/edit
+        }]}>>
+        show on /path/anything/edit 
+    </Route>
   </Route>);
 }
 ```
 
 ### Switch
+Show first
 ```javascript
 import { Switch, Route } from 'stupid-react-router'
 
