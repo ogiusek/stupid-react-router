@@ -13,6 +13,7 @@ Install stupid-react-router with npm
 ## Usage/Examples
 
 ### Route
+Show children when path is correct
 ```javascript
 import { Route } from 'stupid-react-router'
 
@@ -35,7 +36,7 @@ function App() {
 ```
 
 ### Switch
-Show first
+Show only first correct Route
 ```javascript
 import { Switch, Route } from 'stupid-react-router'
 
@@ -48,6 +49,7 @@ function App() {
 ```
 
 ### Link
+Redirects on click to desired path
 ```javascript
 import { Link } from 'stupid-react-router'
 
@@ -57,6 +59,7 @@ function App() {
 ```
 
 ### redirect
+redirects to desired path as not component
 ```javascript
 import { redirect } from 'stupid-react-router'
 
@@ -71,6 +74,7 @@ function App() {
 ```
 
 ### Redirect
+redirects on show to desired path
 ```javascript
 import { Switch, Route, Redirect } from 'stupid-react-router'
 
@@ -87,6 +91,7 @@ function App() {
 ```
 
 ### GetPath
+returns path to callback
 ```javascript
 import { Route, GetPath } from 'stupid-react-router'
 
@@ -112,8 +117,6 @@ Hosting platform
 Or just use serve
 ```bash
   npm run build
-```
-```bash
   serve -s build
 ```
 
