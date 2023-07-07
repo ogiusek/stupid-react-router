@@ -29,7 +29,7 @@ function App() {
         setValues={[e => {
           console.log(e); // anything/edit
         }]}>>
-        show on /path/anything/edit 
+        show on /path/anything/edit
     </Route>
   </Route>);
 }
@@ -109,7 +109,7 @@ function App() {
 ```
 ## Deployment
 
-For deployment of this router you can use 
+For deployment of this router you can use
 
 Web server like apache2\
 Hosting platform
@@ -124,5 +124,5 @@ Or just use serve
 
 ## License
 
-ISC © [ogiusek](https://github.com/ogiusek)
+THE UNLICESE © [ogiusek](https://github.com/ogiusek)
 
