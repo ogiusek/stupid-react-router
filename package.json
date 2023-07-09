@@ -1,6 +1,6 @@
 {
   "name": "stupid-react-router",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Self made router to make life easier",
   "author": "ogiusek",
   "license": "UNLICENSE",
@@ -24,10 +24,10 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "x.x.x"
+    "react": ">=1.14.0 <3.0.0"
   },
   "dependencies": {
-    "react": "x.x.x"
+    "react": ">=1.14.0 <3.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
