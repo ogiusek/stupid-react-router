@@ -1,26 +1,25 @@
-import React from "react";
+import * as React from "react";
 
-import { RouteContext } from "../Route";
-import { redirect } from "../Redirect";
+import { RouteContext } from "../Route/RouteContext";
+import { redirect } from "../Redirect/redirect";
 
 interface LinkProps {
-    children?: JSX.Element,
-    to?: string,
-    exact?: boolean
+  children?: any,
+  to?: string,
+  exact?: boolean
 }
 
 function Link({ children, to = '/', exact = false }: LinkProps): JSX.Element {
-    const ctx = React.useContext(RouteContext);
+  const ctx = React.useContext(RouteContext);
+  const handleLink = (event: any) => {
+    event.preventDefault();
+    redirect((exact ? '' : ctx['path']) + to);
+  }
 
-    const handleLink = (event) => {
-        event.preventDefault();
-        redirect((exact ? '' : ctx.path) + to);
-    }
-
-    return (
-        <a href={to} onClick={handleLink}>{children}</a>
-    );
+  return (
+    <a href={to} onClick={handleLink}>{children}</a>
+  );
 }
 
-export { Link };
+export { Link, LinkProps };
 export default Link;

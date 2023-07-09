@@ -6,8 +6,8 @@
   "license": "UNLICENSE",
   "repository": "ogiusek/stupid-react-router",
   "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "source": "src/index.js",
+  "module": "dist/index.modern.hs",
+  "source": "src/index.ts",
   "engines": {
     "node": ">=10"
   },
@@ -30,6 +30,7 @@
     "react": "x.x.x"
   },
   "devDependencies": {
+    "@types/react": "^18.2.14",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",

@@ -1,34 +1,37 @@
-import React from "react";
-import { Route } from "..";
+import * as React from "react";
+import { Route } from "../Route/index";
 
-import { RouteContext } from "../Route";
-import { routeLogic } from "../Route";
+import { RouteContext, routeLogic } from "../Route/index";
 
-function Switch({ children: childrens }): JSX.Element {
-    const ctx = React.useContext(RouteContext);
-    const allowedChildTypes = [Route];
+interface SwitchProps {
+  children: any
+}
 
-    const children = childrens === undefined ? [] : (Array.isArray(childrens) ? childrens : [childrens])
+function Switch({ children: childrens }: SwitchProps): JSX.Element {
+  const ctx = React.useContext(RouteContext);
+  const allowedChildTypes = [Route];
 
-    if (children.some(child => !allowedChildTypes.includes(child.type))) {
-        throw new Error("Invalid component in Switch. Only Route components are allowed.");
-    }
+  const children = childrens === undefined ? [] : (Array.isArray(childrens) ? childrens : [childrens])
 
-    const child = [...(children.map(child => {
-        const show = routeLogic(
-            ctx.path,
-            child.props.path,
-            child.props.exact,
-            child.props.values,
-            child.props.setValues,
-        ).show;
-        return show ? child : undefined;
-    }).filter(e => e !== undefined)), ''][0];
+  if (children.some(child => !allowedChildTypes.includes(child.type))) {
+    throw new Error("Invalid component in Switch. Only Route components are allowed.");
+  }
 
-    return (<React.Fragment>
-        {child}
-    </React.Fragment>);
+  const child = [...(children.map(child => {
+    const show = routeLogic(
+      ctx.path,
+      child.props.path,
+      child.props.exact,
+      child.props.values,
+      child.props.setValues,
+    ).show;
+    return show ? child : undefined;
+  }).filter(e => e !== undefined)), ''][0];
+
+  return (<React.Fragment>
+    {child}
+  </React.Fragment>);
 };
 
-export { Switch };
+export { Switch, SwitchProps };
 export default Switch;

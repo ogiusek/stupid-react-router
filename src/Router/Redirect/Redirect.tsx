@@ -1,17 +1,17 @@
-import React from "react";
+import * as React from "react";
 
-import { RouteContext } from "../Route";
-import { redirect } from "../index";
+import { RouteContext } from "../Route/index";
+import { redirect } from "./redirect";
 
 interface RedirectProps {
-    to?: string,
-    exact?: boolean
+  to?: string,
+  exact?: boolean
 }
 
 function Redirect({ to = '/', exact = false }: RedirectProps): JSX.Element {
-    const ctx = React.useContext(RouteContext);
-    redirect((exact ? '' : ctx.path) + to);
-    return (<React.Fragment />);
+  const ctx = React.useContext(RouteContext);
+  redirect((exact ? '' : ctx.path) + to);
+  return (<React.Fragment />);
 };
 
-export { Redirect };
+export { Redirect, RedirectProps };

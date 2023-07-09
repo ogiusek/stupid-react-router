@@ -1,1 +1,0 @@
-export { GetPath } from "./GetPath.tsx";
