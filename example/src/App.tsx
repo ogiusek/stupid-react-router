@@ -15,7 +15,7 @@ const App = () => {
           block
         </div>
       </Route>
-      <Route>
+      <Route path="">
         <div>
           nothing
         </div>
