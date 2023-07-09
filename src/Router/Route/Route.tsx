@@ -3,7 +3,7 @@ import { RouteContext } from "./RouteContext";
 
 interface RouteProps {
   children?: any,
-  path?: string,
+  path: string,
   exact?: boolean,
 
   values?: string[],
@@ -11,7 +11,7 @@ interface RouteProps {
 }
 
 function routeLogic(ctxPath: string = '',
-  path: string = '',
+  path: string,
   exact: boolean = false,
   valuesNamesArr: string[] = [],
   setValuesArr: ((path: string) => any)[] = []

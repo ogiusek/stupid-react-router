@@ -9,7 +9,7 @@ interface LinkProps {
   exact?: boolean
 }
 
-function Link({ children, to = '/', exact = false }: LinkProps): JSX.Element {
+function Link({ children, to = '/', exact = true }: LinkProps): JSX.Element {
   const ctx = React.useContext(RouteContext);
   const handleLink = (event: any) => {
     event.preventDefault();
