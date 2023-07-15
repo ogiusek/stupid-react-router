@@ -43,7 +43,7 @@ import { Switch, Route } from 'stupid-react-router'
 function App() {
   return (<Switch>
     <Route path="/path">show on /path/+</Route>
-    <Route>show on not /path/+</Route>
+    <Route path="/">show on not /path/+</Route>
   </Switch>);
 }
 ```
@@ -70,23 +70,6 @@ function App() {
 
   return (<div>
   </div>);
-}
-```
-
-### Redirect
-redirects on show to desired path
-```javascript
-import { Switch, Route, Redirect } from 'stupid-react-router'
-
-function App() {
-  const handle = ()=>{
-    redirect('/path');
-  }
-
-  return (<Switch>
-    <Route path="/path">path</Route>
-    <Route><Redirect to="/path"/></Route>
-  </Switch>);
 }
 ```
 
