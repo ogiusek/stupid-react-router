@@ -4,20 +4,25 @@ import { RouteContext } from "../Route/RouteContext";
 import { redirect } from "../Redirect/redirect";
 
 interface LinkProps {
+  to: string,
   children?: any,
-  to?: string,
-  exact?: boolean
+  relative?: boolean,
+
+  className?: string,
+  style?: React.CSSProperties
 }
 
-function Link({ children, to = '/', exact = true }: LinkProps): JSX.Element {
+function Link({ children, to = '/', relative = false, className = '', style = {} }: LinkProps): JSX.Element {
   const ctx = React.useContext(RouteContext);
   const handleLink = (event: any) => {
     event.preventDefault();
-    redirect((exact ? '' : ctx['path']) + to);
+    redirect((relative ? ctx['path'] : '') + to);
   }
 
   return (
-    <a href={to} onClick={handleLink}>{children}</a>
+    <a href={to} onClick={handleLink}
+      className={className} style={style}
+    >{children}</a >
   );
 }
 
