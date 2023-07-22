@@ -20,9 +20,9 @@ function routeLogic(ctxPath: string = '',
   const setValues = setValuesArr;
 
   const realPath = window.location.pathname;
-  const realPathArr: string[] = realPath.split('/');
+  const realPathArr: string[] = realPath.split('/').filter(e => e.length);
   const wantedPath = ctxPath + (path[path.length - 1] === '/' ? path.slice(-1, 0) : path);
-  const wantedPathArr = wantedPath.split('/');
+  const wantedPathArr = wantedPath.split('/').filter(e => e.length);
 
   if (valuesNames.length !== setValues.length) {
     throw new Error("Route: values and setValues length's are not equal");
