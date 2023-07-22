@@ -1,29 +1,23 @@
 
-import React from "react";
-import { Route, Switch } from "stupid-react-router";
+import React, { useState } from "react";
+import { Route, Switch, Link, SetRefresher } from "stupid-react-router";
 
 const App = () => {
+  const [refresher, setRefresher] = useState<boolean>(false);
+  const [v, setV] = useState(0);
+
   return (<div>
+    <SetRefresher state={refresher} setState={setRefresher} />
     ssd<br />
     <Switch>
-      <Route path="/walk/:id/edit"
-        values={[':id']}
-        setValues={[(e: string) => {
-          console.log(e);
-        }]}>
-        <div>
-          block
-        </div>
+      <Route path="/b">
+        <Link to="/a">a to</Link>
+        <button onClick={() => { setV(v + 1) }}>{v}btn</button>
       </Route>
+
       <Route path="/a">
-        <Switch>
-          <Route path="/home">a</Route>
-          <Route path="/oh">b</Route>
-          <Route path="/">c</Route>
-        </Switch>
-        <div>
-          nothing
-        </div>
+        <Link to="/b">b to</Link>
+        <button onClick={() => { setV(v + 1) }}>{v}btn</button>
       </Route>
 
     </Switch>

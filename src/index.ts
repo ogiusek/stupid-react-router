@@ -1,1 +1,1 @@
-export { Link, Redirect, redirect, Route, GetPath, Switch } from "./Router/index";
+export { Link, Redirect, redirect, Route, GetPath, Switch, SetRefresher } from "./Router/index";

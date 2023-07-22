@@ -7,16 +7,18 @@ interface LinkProps {
   to: string,
   children?: any,
   relative?: boolean,
+  disabled?: boolean,
 
   className?: string,
   style?: React.CSSProperties
 }
 
-function Link({ children, to = '/', relative = false, className = '', style = {} }: LinkProps): JSX.Element {
+function Link({ children, to = '/', relative = false, disabled = false, className = '', style = {} }: LinkProps): JSX.Element {
   const ctx = React.useContext(RouteContext);
-  const handleLink = (event: any) => {
+  const handleLink = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     event.preventDefault();
-    redirect((relative ? ctx['path'] : '') + to);
+    if (!disabled)
+      redirect((relative ? ctx['path'] : '') + to);
   }
 
   return (
