@@ -15,7 +15,12 @@ const App = () => {
           block
         </div>
       </Route>
-      <Route path="">
+      <Route path="/a">
+        <Switch>
+          <Route path="/home">a</Route>
+          <Route path="/oh">b</Route>
+          <Route path="/">c</Route>
+        </Switch>
         <div>
           nothing
         </div>
