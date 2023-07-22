@@ -10,6 +10,23 @@ Install stupid-react-router with npm
   npm install stupid-react-router
 ```
 
+Add to your main component SetRefresher
+```javascript
+import React from "react"
+import { SetRefresher } from 'stupid-react-router'
+
+function App(){
+  const [state, setState] = React.useState(false); // Naming convention is up to you
+
+  return (<React.Fragment>
+    <SetRefresher state={state} setState={setState}>
+    {/* your code ... */}
+  </React.Fragment>);
+}
+
+export default App;
+```
+
 ## Usage/Examples
 
 ### Route
