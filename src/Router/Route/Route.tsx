@@ -7,26 +7,20 @@ interface RouteProps {
   exact?: boolean,
 
   values?: string[],
-  setValues?: ((path: string) => any)[],
+  setValues?: (paths: string[]) => any,
 }
 
 function routeLogic(ctxPath: string = '',
   path: string,
   exact: boolean = false,
   valuesNamesArr: string[] = [],
-  setValuesArr: ((path: string) => any)[] = []
 ) {
   const valuesNames = valuesNamesArr;
-  const setValues = setValuesArr;
 
   const realPath = window.location.pathname;
   const realPathArr: string[] = realPath.split('/').filter(e => e.length);
   const wantedPath = ctxPath + (path[path.length - 1] === '/' ? path.slice(-1, 0) : path);
   const wantedPathArr = wantedPath.split('/').filter(e => e.length);
-
-  if (valuesNames.length !== setValues.length) {
-    throw new Error("Route: values and setValues length's are not equal");
-  }
 
   let values: any[] = [];
   let routeContextProviderPath = "";
@@ -52,21 +46,19 @@ function routeLogic(ctxPath: string = '',
 }
 
 function Route({ children, path = "/", exact = false,
-  values: valuesNames = [], setValues = [],
+  values: valuesNames = [], setValues = () => { },
 }: RouteProps): JSX.Element {
 
   const ctx = React.useContext(RouteContext);
 
-  const rLogic = routeLogic(ctx.path, path, exact, valuesNames, setValues);
+  const rLogic = routeLogic(ctx.path, path, exact, valuesNames);
   const show = rLogic.show;
   const values = rLogic.values;
   const routeContextProviderPath = rLogic.routeContextProviderPath;
 
   React.useEffect(() => {
     if (show) {
-      setValues.map((e, i) => {
-        e(values[i]);
-      });
+      setValues(values);
     }
   }, [window.location.pathname]);
 
