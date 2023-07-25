@@ -43,9 +43,9 @@ function App() {
 
     <Route path="/:user/edit" exact
         values={[':user']}
-        setValues={[e => {
-          console.log(e); // anything/edit
-        }]}>>
+        setValues={(paths) => {
+          console.log(paths); // ["anything"]
+        }}>
         show on /path/anything/edit
     </Route>
   </Route>);
